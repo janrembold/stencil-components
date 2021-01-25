@@ -2,6 +2,12 @@
 
 import { Components, JSX } from "../types/components";
 
+interface HmgContainer extends Components.HmgContainer, HTMLElement {}
+export const HmgContainer: {
+  prototype: HmgContainer;
+  new (): HmgContainer;
+};
+
 interface MyComponent extends Components.MyComponent, HTMLElement {}
 export const MyComponent: {
   prototype: MyComponent;

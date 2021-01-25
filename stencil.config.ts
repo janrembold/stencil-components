@@ -1,8 +1,12 @@
 import { Config } from '@stencil/core';
 import { reactOutputTarget } from '@stencil/react-output-target';
+import { sass } from '@stencil/sass';
+import { postcss } from '@stencil/postcss';
+import autoprefixer from 'autoprefixer';
 
 export const config: Config = {
   namespace: 'stencil-components',
+  globalStyle: 'src/global/global.scss',
   outputTargets: [
     reactOutputTarget({
       componentCorePackage: 'stencil-components',
@@ -23,4 +27,10 @@ export const config: Config = {
       serviceWorker: null, // disable service workers
     },
   ],
+  plugins: [
+    sass(),
+    postcss({
+      plugins: [autoprefixer()]
+    })
+  ]
 };

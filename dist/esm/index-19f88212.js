@@ -1,25 +1,3 @@
-'use strict';
-
-function _interopNamespace(e) {
-  if (e && e.__esModule) return e;
-  var n = Object.create(null);
-  if (e) {
-    Object.keys(e).forEach(function (k) {
-      if (k !== 'default') {
-        var d = Object.getOwnPropertyDescriptor(e, k);
-        Object.defineProperty(n, k, d.get ? d : {
-          enumerable: true,
-          get: function () {
-            return e[k];
-          }
-        });
-      }
-    });
-  }
-  n['default'] = e;
-  return Object.freeze(n);
-}
-
 const NAMESPACE = 'stencil-components';
 
 let scopeId;
@@ -126,6 +104,14 @@ const attachStyles = (hostRef) => {
     endAttachStyles();
 };
 const getScopeId = (cmp, mode) => 'sc-' + ( cmp.$tagName$);
+/**
+ * Default style mode id
+ */
+/**
+ * Reusable empty obj/array
+ * Don't add values to these!!
+ */
+const EMPTY_OBJ = {};
 const isDef = (v) => v != null;
 const isComplexType = (o) => {
     // https://jsperf.com/typeof-fn-object/5
@@ -171,6 +157,19 @@ const h = (nodeName, vnodeData, ...children) => {
         }
     };
     walk(children);
+    if (vnodeData) {
+        {
+            const classData = vnodeData.className || vnodeData.class;
+            if (classData) {
+                vnodeData.class =
+                    typeof classData !== 'object'
+                        ? classData
+                        : Object.keys(classData)
+                            .filter(k => classData[k])
+                            .join(' ');
+            }
+        }
+    }
     const vnode = newVNode(nodeName, null);
     vnode.$attrs$ = vnodeData;
     if (vNodeChildren.length > 0) {
@@ -186,10 +185,55 @@ const newVNode = (tag, text) => {
         $elm$: null,
         $children$: null,
     };
+    {
+        vnode.$attrs$ = null;
+    }
     return vnode;
 };
 const Host = {};
 const isHost = (node) => node && node.$tag$ === Host;
+/**
+ * Production setAccessor() function based on Preact by
+ * Jason Miller (@developit)
+ * Licensed under the MIT License
+ * https://github.com/developit/preact/blob/master/LICENSE
+ *
+ * Modified for Stencil's compiler and vdom
+ */
+const setAccessor = (elm, memberName, oldValue, newValue, isSvg, flags) => {
+    if (oldValue !== newValue) {
+        let ln = memberName.toLowerCase();
+        if ( memberName === 'class') {
+            const classList = elm.classList;
+            const oldClasses = parseClassList(oldValue);
+            const newClasses = parseClassList(newValue);
+            classList.remove(...oldClasses.filter(c => c && !newClasses.includes(c)));
+            classList.add(...newClasses.filter(c => c && !oldClasses.includes(c)));
+        }
+    }
+};
+const parseClassListRegex = /\s/;
+const parseClassList = (value) => (!value ? [] : value.split(parseClassListRegex));
+const updateElement = (oldVnode, newVnode, isSvgMode, memberName) => {
+    // if the element passed in is a shadow root, which is a document fragment
+    // then we want to be adding attrs/props to the shadow root's "host" element
+    // if it's not a shadow root, then we add attrs/props to the same element
+    const elm = newVnode.$elm$.nodeType === 11 /* DocumentFragment */ && newVnode.$elm$.host ? newVnode.$elm$.host : newVnode.$elm$;
+    const oldVnodeAttrs = (oldVnode && oldVnode.$attrs$) || EMPTY_OBJ;
+    const newVnodeAttrs = newVnode.$attrs$ || EMPTY_OBJ;
+    {
+        // remove attributes no longer present on the vnode by setting them to undefined
+        for (memberName in oldVnodeAttrs) {
+            if (!(memberName in newVnodeAttrs)) {
+                setAccessor(elm, memberName, oldVnodeAttrs[memberName], undefined);
+            }
+        }
+    }
+    // add new & update changed attributes
+    for (memberName in newVnodeAttrs) {
+        setAccessor(elm, memberName, oldVnodeAttrs[memberName], newVnodeAttrs[memberName]);
+    }
+};
 const createElm = (oldParentVNode, newParentVNode, childIndex, parentElm) => {
     // tslint:disable-next-line: prefer-const
     let newVNode = newParentVNode.$children$[childIndex];
@@ -203,6 +247,10 @@ const createElm = (oldParentVNode, newParentVNode, childIndex, parentElm) => {
     else {
         // create element
         elm = newVNode.$elm$ = ( doc.createElement( newVNode.$tag$));
+        // add css classes, attrs, props, listeners, etc.
+        {
+            updateElement(null, newVNode);
+        }
         if ( isDef(scopeId) && elm['s-si'] !== scopeId) {
             // if there is a scopeId and this is the initial render
             // then let's add the scopeId as a css class
@@ -325,8 +373,20 @@ const patch = (oldVNode, newVNode) => {
     const elm = (newVNode.$elm$ = oldVNode.$elm$);
     const oldChildren = oldVNode.$children$;
     const newChildren = newVNode.$children$;
+    const tag = newVNode.$tag$;
     const text = newVNode.$text$;
     if ( text === null) {
+        // element node
+        {
+            if ( tag === 'slot')
+                ;
+            else {
+                // either this is the first render of an element OR it's an update
+                // AND we already know it's possible it could have changed
+                // this updates the element's css classes, attrs, props, listeners, etc.
+                updateElement(oldVNode, newVNode);
+            }
+        }
         if ( oldChildren !== null && newChildren !== null) {
             // looks like there's child vnodes for both the old and new vnodes
             updateChildren(elm, oldChildren, newVNode, newChildren);
@@ -816,11 +876,11 @@ const loadModule = (cmpMeta, hostRef, hmrVersionId) => {
     if (module) {
         return module[exportName];
     }
-    return Promise.resolve().then(function () { return /*#__PURE__*/_interopNamespace(require(
+    return import(
     /* webpackInclude: /\.entry\.js$/ */
     /* webpackExclude: /\.system\.entry\.js$/ */
     /* webpackMode: "lazy" */
-    `./${bundleId}.entry.js${ ''}`)); }).then(importedModule => {
+    `./${bundleId}.entry.js${ ''}`).then(importedModule => {
         {
             cmpModules.set(bundleId, importedModule);
         }
@@ -871,7 +931,4 @@ const flush = () => {
 const nextTick = /*@__PURE__*/ (cb) => promiseResolve().then(cb);
 const writeTask = /*@__PURE__*/ queueTask(queueDomWrites, true);
 
-exports.bootstrapLazy = bootstrapLazy;
-exports.h = h;
-exports.promiseResolve = promiseResolve;
-exports.registerInstance = registerInstance;
+export { bootstrapLazy as b, h, promiseResolve as p, registerInstance as r };

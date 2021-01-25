@@ -1,5 +1,6 @@
 {
   "entries": [
+    "./components/container/hmg-container.js",
     "./components/my-component/my-component.js"
   ],
   "compiler": {

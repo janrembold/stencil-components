@@ -6,13 +6,15 @@ export class MyComponent {
   }
   render() {
     return h("div", null,
-      "Hello, World! I'm ",
+      "Hello, ",
+      h("span", { class: "foo-bar" }, "World"),
+      "! I'm ",
       this.getText());
   }
   static get is() { return "my-component"; }
   static get encapsulation() { return "shadow"; }
   static get originalStyleUrls() { return {
-    "$": ["my-component.css"]
+    "$": ["my-component.scss"]
   }; }
   static get styleUrls() { return {
     "$": ["my-component.css"]

@@ -1,3 +1,7 @@
 :host {
   display: block;
 }
+
+.foo-bar {
+  color: red;
+}

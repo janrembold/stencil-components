@@ -2,13 +2,13 @@
 
 Object.defineProperty(exports, '__esModule', { value: true });
 
-const index = require('./index-96af1c62.js');
+const index = require('./index-10fe2e0b.js');
 
 function format(first, middle, last) {
   return (first || '') + (middle ? ` ${middle}` : '') + (last ? ` ${last}` : '');
 }
 
-const myComponentCss = ":host{display:block}";
+const myComponentCss = ":host{display:block}.foo-bar{color:red}";
 
 const MyComponent = class {
   constructor(hostRef) {
@@ -18,7 +18,7 @@ const MyComponent = class {
     return format(this.first, this.middle, this.last);
   }
   render() {
-    return index.h("div", null, "Hello, World! I'm ", this.getText());
+    return index.h("div", null, "Hello, ", index.h("span", { class: "foo-bar" }, "World"), "! I'm ", this.getText());
   }
 };
 MyComponent.style = myComponentCss;
