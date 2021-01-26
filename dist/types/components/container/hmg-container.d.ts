@@ -1,3 +1,3 @@
-export declare class Container {
+export declare class HmgContainer {
   render(): any;
 }

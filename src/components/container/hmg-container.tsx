@@ -1,12 +1,12 @@
-import { Component, h } from '@stencil/core';
+import { Component, h, Host } from '@stencil/core';
 
 @Component({
   tag: 'hmg-container',
   styleUrl: 'hmg-container.scss',
   shadow: true,
 })
-export class Container {
+export class HmgContainer {
   render() {
-    return <div class="container"><slot></slot></div>;
+    return <Host><slot></slot></Host>;
   }
 }

@@ -1,15 +1,15 @@
-import { r as registerInstance, h } from './index-19f88212.js';
+import { r as registerInstance, h, H as Host } from './index-423abfda.js';
 
-const hmgContainerCss = ":root{padding:20px;background-color:var(--theme-background-color);border:1px solid red}.container{padding:30px;background-color:var(--theme-background-color);border:1px solid blue}";
+const hmgContainerCss = ":host{display:block;padding:20px;background-color:var(--theme-background-color, pink);border:1px solid red}";
 
-const Container = class {
+const HmgContainer = class {
   constructor(hostRef) {
     registerInstance(this, hostRef);
   }
   render() {
-    return h("div", { class: "container" }, h("slot", null));
+    return h(Host, null, h("slot", null));
   }
 };
-Container.style = hmgContainerCss;
+HmgContainer.style = hmgContainerCss;
 
-export { Container as hmg_container };
+export { HmgContainer as hmg_container };

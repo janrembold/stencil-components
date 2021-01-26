@@ -1,7 +1,7 @@
-import { Component, h } from '@stencil/core';
-export class Container {
+import { Component, h, Host } from '@stencil/core';
+export class HmgContainer {
   render() {
-    return h("div", { class: "container" },
+    return h(Host, null,
       h("slot", null));
   }
   static get is() { return "hmg-container"; }

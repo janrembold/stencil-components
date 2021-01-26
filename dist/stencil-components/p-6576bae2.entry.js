@@ -1,1 +1,0 @@
-import{r,h as o}from"./p-77c369c3.js";const c=class{constructor(o){r(this,o)}render(){return o("div",{class:"container"},o("slot",null))}};c.style=":root{padding:20px;background-color:var(--theme-background-color);border:1px solid red}.container{padding:30px;background-color:var(--theme-background-color);border:1px solid blue}";export{c as hmg_container}

@@ -1,16 +1,16 @@
-import { attachShadow, h, proxyCustomElement } from '@stencil/core/internal/client';
+import { attachShadow, h, Host, proxyCustomElement } from '@stencil/core/internal/client';
 export { setAssetPath } from '@stencil/core/internal/client';
 
-const hmgContainerCss = ":root{padding:20px;background-color:var(--theme-background-color);border:1px solid red}.container{padding:30px;background-color:var(--theme-background-color);border:1px solid blue}";
+const hmgContainerCss = ":host{display:block;padding:20px;background-color:var(--theme-background-color, pink);border:1px solid red}";
 
-const Container = class extends HTMLElement {
+const HmgContainer = class extends HTMLElement {
   constructor() {
     super();
     this.__registerHost();
     attachShadow(this);
   }
   render() {
-    return h("div", { class: "container" }, h("slot", null));
+    return h(Host, null, h("slot", null));
   }
   static get style() { return hmgContainerCss; }
 };
@@ -36,12 +36,12 @@ const MyComponent = class extends HTMLElement {
   static get style() { return myComponentCss; }
 };
 
-const HmgContainer = /*@__PURE__*/proxyCustomElement(Container, [1,"hmg-container"]);
+const HmgContainer$1 = /*@__PURE__*/proxyCustomElement(HmgContainer, [1,"hmg-container"]);
 const MyComponent$1 = /*@__PURE__*/proxyCustomElement(MyComponent, [1,"my-component",{"first":[1],"middle":[1],"last":[1]}]);
 const defineCustomElements = (opts) => {
   if (typeof customElements !== 'undefined') {
     [
-      HmgContainer,
+      HmgContainer$1,
   MyComponent$1
     ].forEach(cmp => {
       if (!customElements.get(cmp.is)) {
@@ -51,4 +51,4 @@ const defineCustomElements = (opts) => {
   }
 };
 
-export { HmgContainer, MyComponent$1 as MyComponent, defineCustomElements };
+export { HmgContainer$1 as HmgContainer, MyComponent$1 as MyComponent, defineCustomElements };

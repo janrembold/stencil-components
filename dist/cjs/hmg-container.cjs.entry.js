@@ -2,18 +2,18 @@
 
 Object.defineProperty(exports, '__esModule', { value: true });
 
-const index = require('./index-10fe2e0b.js');
+const index = require('./index-9d5f37da.js');
 
-const hmgContainerCss = ":root{padding:20px;background-color:var(--theme-background-color);border:1px solid red}.container{padding:30px;background-color:var(--theme-background-color);border:1px solid blue}";
+const hmgContainerCss = ":host{display:block;padding:20px;background-color:var(--theme-background-color, pink);border:1px solid red}";
 
-const Container = class {
+const HmgContainer = class {
   constructor(hostRef) {
     index.registerInstance(this, hostRef);
   }
   render() {
-    return index.h("div", { class: "container" }, index.h("slot", null));
+    return index.h(index.Host, null, index.h("slot", null));
   }
 };
-Container.style = hmgContainerCss;
+HmgContainer.style = hmgContainerCss;
 
-exports.hmg_container = Container;
+exports.hmg_container = HmgContainer;

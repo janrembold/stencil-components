@@ -1,11 +1,6 @@
-:root {
+:host {
+  display: block;
   padding: 20px;
-  background-color: var(--theme-background-color);
+  background-color: var(--theme-background-color, pink);
   border: 1px solid red;
-}
-
-.container {
-  padding: 30px;
-  background-color: var(--theme-background-color);
-  border: 1px solid blue;
 }
