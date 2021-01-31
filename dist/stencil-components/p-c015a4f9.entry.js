@@ -1,0 +1,1 @@
+import{r as o,h as r}from"./p-f1e4b598.js";const s=class{constructor(r){o(this,r)}getText(){return(this.first||"")+((o=this.middle)?" "+o:"")+((r=this.last)?" "+r:"");var o,r}render(){return r("div",null,"Hellooooo, ",r("span",{class:"foo-bar"},"World"),"! I'm ",this.getText())}};s.style=":host{display:block}.foo-bar{color:red}";export{s as my_component}

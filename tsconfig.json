@@ -4,22 +4,25 @@
     "allowUnreachableCode": false,
     "declaration": false,
     "experimentalDecorators": true,
+    "jsx": "react",
+    "jsxFactory": "h",
     "lib": [
       "dom",
       "es2017"
     ],
-    "moduleResolution": "node",
     "module": "esnext",
-    "target": "es2017",
+    "moduleResolution": "node",
     "noUnusedLocals": true,
     "noUnusedParameters": true,
-    "jsx": "react",
-    "jsxFactory": "h"
+    "target": "es2017"
   },
-  "include": [
-    "src"
-  ],
   "exclude": [
     "node_modules"
+  ],
+  "files": [
+    ".storybook/typings.d.ts"
+  ],
+  "include": [
+    "src"
   ]
 }

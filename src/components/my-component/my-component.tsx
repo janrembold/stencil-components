@@ -1,6 +1,9 @@
 import { Component, Prop, h } from '@stencil/core';
 import { format } from '../../utils/utils';
 
+/**
+ * MyComponent Desc
+ */
 @Component({
   tag: 'my-component',
   styleUrl: 'my-component.scss',
@@ -27,6 +30,6 @@ export class MyComponent {
   }
 
   render() {
-    return <div>Hello, <span class="foo-bar">World</span>! I'm {this.getText()}</div>;
+    return (<div>Hellooooo, <span class="foo-bar">World</span>! I'm {this.getText()}</div>);
   }
 }

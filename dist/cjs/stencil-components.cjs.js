@@ -1,9 +1,9 @@
 'use strict';
 
-const index = require('./index-9d5f37da.js');
+const index = require('./index-c5eb4963.js');
 
 /*
- Stencil Client Patch Browser v2.3.0 | MIT Licensed | https://stenciljs.com
+ Stencil Client Patch Browser v2.0.1 | MIT Licensed | https://stenciljs.com
  */
 const patchBrowser = () => {
     const importMeta = (typeof document === 'undefined' ? new (require('u' + 'rl').URL)('file:' + __filename).href : (document.currentScript && document.currentScript.src || new URL('stencil-components.cjs.js', document.baseURI).href));

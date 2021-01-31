@@ -31,7 +31,7 @@ const MyComponent = class extends HTMLElement {
     return format(this.first, this.middle, this.last);
   }
   render() {
-    return h("div", null, "Hello, ", h("span", { class: "foo-bar" }, "World"), "! I'm ", this.getText());
+    return (h("div", null, "Hellooooo, ", h("span", { class: "foo-bar" }, "World"), "! I'm ", this.getText()));
   }
   static get style() { return myComponentCss; }
 };

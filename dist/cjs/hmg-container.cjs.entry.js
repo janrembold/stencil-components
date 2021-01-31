@@ -2,7 +2,7 @@
 
 Object.defineProperty(exports, '__esModule', { value: true });
 
-const index = require('./index-9d5f37da.js');
+const index = require('./index-c5eb4963.js');
 
 const hmgContainerCss = ":host{display:block;padding:20px;background-color:var(--theme-background-color, pink);border:1px solid red}";
 

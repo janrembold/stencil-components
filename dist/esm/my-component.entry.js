@@ -1,4 +1,4 @@
-import { r as registerInstance, h } from './index-423abfda.js';
+import { r as registerInstance, h } from './index-a3a0e755.js';
 
 function format(first, middle, last) {
   return (first || '') + (middle ? ` ${middle}` : '') + (last ? ` ${last}` : '');
@@ -14,7 +14,7 @@ const MyComponent = class {
     return format(this.first, this.middle, this.last);
   }
   render() {
-    return h("div", null, "Hello, ", h("span", { class: "foo-bar" }, "World"), "! I'm ", this.getText());
+    return (h("div", null, "Hellooooo, ", h("span", { class: "foo-bar" }, "World"), "! I'm ", this.getText()));
   }
 };
 MyComponent.style = myComponentCss;

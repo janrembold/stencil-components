@@ -1,4 +1,4 @@
-import { r as registerInstance, h, H as Host } from './index-423abfda.js';
+import { r as registerInstance, h, H as Host } from './index-a3a0e755.js';
 
 const hmgContainerCss = ":host{display:block;padding:20px;background-color:var(--theme-background-color, pink);border:1px solid red}";
 

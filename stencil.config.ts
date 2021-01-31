@@ -23,6 +23,10 @@ export const config: Config = {
       type: 'docs-readme',
     },
     {
+      type: 'docs-json',
+      file: '.stencil/docs.json'
+    },
+    {
       type: 'www',
       serviceWorker: null, // disable service workers
     },

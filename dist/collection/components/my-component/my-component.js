@@ -1,15 +1,18 @@
 import { Component, Prop, h } from '@stencil/core';
 import { format } from '../../utils/utils';
+/**
+ * MyComponent Desc
+ */
 export class MyComponent {
   getText() {
     return format(this.first, this.middle, this.last);
   }
   render() {
-    return h("div", null,
-      "Hello, ",
+    return (h("div", null,
+      "Hellooooo, ",
       h("span", { class: "foo-bar" }, "World"),
       "! I'm ",
-      this.getText());
+      this.getText()));
   }
   static get is() { return "my-component"; }
   static get encapsulation() { return "shadow"; }
