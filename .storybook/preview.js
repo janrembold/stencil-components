@@ -7,10 +7,12 @@ import {
 import docJson from '../.stencil/docs.json'
 import '../src/global/global.css'
 
+// fix component documentation
 if (docJson) {
-  console.log(docJson)
   setStencilDocJson(docJson)
 }
+
+// define web components
 defineCustomElements()
 
 export const parameters = {

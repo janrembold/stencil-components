@@ -1,26 +1,3 @@
-'use strict';
-
-function _interopNamespace(e) {
-  if (e && e.__esModule) { return e; } else {
-    var n = Object.create(null);
-    if (e) {
-      Object.keys(e).forEach(function (k) {
-        if (k !== 'default') {
-          var d = Object.getOwnPropertyDescriptor(e, k);
-          Object.defineProperty(n, k, d.get ? d : {
-            enumerable: true,
-            get: function () {
-              return e[k];
-            }
-          });
-        }
-      });
-    }
-    n['default'] = e;
-    return Object.freeze(n);
-  }
-}
-
 const NAMESPACE = 'stencil-components';
 
 let scopeId;
@@ -41,7 +18,7 @@ const promiseResolve = (v) => Promise.resolve(v);
 const supportsConstructibleStylesheets =  /*@__PURE__*/ (() => {
         try {
             new CSSStyleSheet();
-            return true;
+            return typeof (new CSSStyleSheet()).replace === 'function';
         }
         catch (e) { }
         return false;
@@ -492,14 +469,7 @@ const updateComponent = async (hostRef, instance, isInitialLoad) => {
     }
     const endRender = createTime('render', hostRef.$cmpMeta$.$tagName$);
     {
-        {
-            // looks like we've got child nodes to render into this host element
-            // or we need to update the css class/attrs on the host element
-            // DOM WRITE!
-            {
-                renderVdom(hostRef, callRender(hostRef, instance));
-            }
-        }
+        callRender(hostRef, instance);
     }
     if ( rc) {
         // ok, so turns out there are some child host elements
@@ -523,7 +493,7 @@ const updateComponent = async (hostRef, instance, isInitialLoad) => {
         }
     }
 };
-const callRender = (hostRef, instance) => {
+const callRender = (hostRef, instance, elm) => {
     try {
         instance =  instance.render() ;
         {
@@ -532,11 +502,21 @@ const callRender = (hostRef, instance) => {
         {
             hostRef.$flags$ |= 2 /* hasRendered */;
         }
+        {
+            {
+                // looks like we've got child nodes to render into this host element
+                // or we need to update the css class/attrs on the host element
+                // DOM WRITE!
+                {
+                    renderVdom(hostRef, instance);
+                }
+            }
+        }
     }
     catch (e) {
-        consoleError(e);
+        consoleError(e, hostRef.$hostElement$);
     }
-    return instance;
+    return null;
 };
 const postUpdateComponent = (hostRef) => {
     const tagName = hostRef.$cmpMeta$.$tagName$;
@@ -889,7 +869,7 @@ const registerHost = (elm, cmpMeta) => {
     }
     return hostRefs.set(elm, hostRef);
 };
-const consoleError = (e) => console.error(e);
+const consoleError = (e, el) => ( 0, console.error)(e, el);
 const cmpModules = /*@__PURE__*/ new Map();
 const loadModule = (cmpMeta, hostRef, hmrVersionId) => {
     // loadModuleImport
@@ -899,11 +879,11 @@ const loadModule = (cmpMeta, hostRef, hmrVersionId) => {
     if (module) {
         return module[exportName];
     }
-    return Promise.resolve().then(function () { return /*#__PURE__*/_interopNamespace(require(
+    return import(
     /* webpackInclude: /\.entry\.js$/ */
     /* webpackExclude: /\.system\.entry\.js$/ */
     /* webpackMode: "lazy" */
-    `./${bundleId}.entry.js${ ''}`)); }).then(importedModule => {
+    `./${bundleId}.entry.js${ ''}`).then(importedModule => {
         {
             cmpModules.set(bundleId, importedModule);
         }
@@ -954,8 +934,4 @@ const flush = () => {
 const nextTick = /*@__PURE__*/ (cb) => promiseResolve().then(cb);
 const writeTask = /*@__PURE__*/ queueTask(queueDomWrites, true);
 
-exports.Host = Host;
-exports.bootstrapLazy = bootstrapLazy;
-exports.h = h;
-exports.promiseResolve = promiseResolve;
-exports.registerInstance = registerInstance;
+export { Host as H, bootstrapLazy as b, h, promiseResolve as p, registerInstance as r };

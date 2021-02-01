@@ -1,5 +1,5 @@
 import { attachShadow, h, Host, proxyCustomElement } from '@stencil/core/internal/client';
-export { setAssetPath } from '@stencil/core/internal/client';
+export { setAssetPath, setPlatformOptions } from '@stencil/core/internal/client';
 
 const hmgContainerCss = ":host{display:block;padding:20px;background-color:var(--theme-background-color, pink);border:1px solid red}";
 
