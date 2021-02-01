@@ -5,6 +5,7 @@ import readme from './readme.md';
 
 export default {
   title: 'Example/Foo',
+  component: 'my-component',
   parameters: {
     notes: { readme },
   }

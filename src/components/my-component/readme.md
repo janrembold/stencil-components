@@ -4,6 +4,7 @@ Some fancy description
 
 <!-- Auto Generated Below -->
 
+
 ## Properties
 
 | Property | Attribute | Description     | Type     | Default     |
@@ -12,6 +13,7 @@ Some fancy description
 | `last`   | `last`    | The last name   | `string` | `undefined` |
 | `middle` | `middle`  | The middle name | `string` | `undefined` |
 
----
 
-_Built with [StencilJS](https://stenciljs.com/)_
+----------------------------------------------
+
+*Built with [StencilJS](https://stenciljs.com/)*

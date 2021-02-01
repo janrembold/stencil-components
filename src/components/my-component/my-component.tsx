@@ -1,4 +1,4 @@
-import { Component, Prop, h } from '@stencil/core';
+import { Component, Prop, h, Host } from '@stencil/core';
 import { format } from '../../utils/utils';
 
 /**
@@ -30,6 +30,6 @@ export class MyComponent {
   }
 
   render() {
-    return (<div>Hellooooo, <span class="foo-bar">World</span>! I'm {this.getText()}</div>);
+    return <Host>Hellooooo, <span class="foo-bar">World</span>! I'm {this.getText()}</Host>;
   }
 }

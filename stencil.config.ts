@@ -6,7 +6,7 @@ import autoprefixer from 'autoprefixer';
 
 export const config: Config = {
   namespace: 'stencil-components',
-  globalStyle: 'src/global/global.scss',
+  globalStyle: 'src/global/global.css',
   outputTargets: [
     reactOutputTarget({
       componentCorePackage: 'stencil-components',

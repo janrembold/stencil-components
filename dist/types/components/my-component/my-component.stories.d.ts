@@ -1,5 +1,6 @@
 declare const _default: {
   title: string;
+  component: string;
   parameters: {
     notes: {
       readme: string;

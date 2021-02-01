@@ -1,5 +1,6 @@
 :host {
   display: block;
+  background-color: var(--theme-background-color);
 }
 
 .foo-bar {
