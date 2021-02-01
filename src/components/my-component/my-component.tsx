@@ -30,6 +30,6 @@ export class MyComponent {
   }
 
   render() {
-    return <Host>Hellooooo, <span class="foo-bar">World</span>! I'm {this.getText()}</Host>;
+    return <Host>Hellooooo <span class="foo-bar">World</span>! I'm {this.getText()}</Host>;
   }
 }

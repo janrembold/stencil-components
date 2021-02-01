@@ -1,6 +1,4 @@
-# my-component
-
-Some fancy description
+Some fancy description from readme.md
 
 <!-- Auto Generated Below -->
 

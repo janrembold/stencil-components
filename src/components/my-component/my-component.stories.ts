@@ -11,10 +11,18 @@ export default {
   }
 };
 
-const Template = args => html`<my-component first="${args.first}" last="${args.last}"></my-component>`;
+const Template = ({first,middle,last}) => html`<my-component first="${first}" middle="${middle}" last="${last}"></my-component>`;
 
 export const Demo = Template.bind({});
 Demo.args = {
   first: 'Foo',
+  middle: '',
   last: 'Bar',
+};
+
+export const StressTest = Template.bind({});
+StressTest.args = {
+  first: 'Hubertus',
+  middle: 'Maximilian',
+  last: 'Wolfeschlegelsteinhausenbergerdorff-Ottovordemgentschenfeldelein',
 };

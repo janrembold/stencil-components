@@ -4,7 +4,7 @@ function format(first, middle, last) {
   return (first || '') + (middle ? ` ${middle}` : '') + (last ? ` ${last}` : '');
 }
 
-const myComponentCss = ":host{display:block;background-color:var(--theme-background-color)}.foo-bar{color:red}";
+const myComponentCss = ":host{display:block;background-color:var(--theme-background-color);padding:20px}.foo-bar{color:red}";
 
 const MyComponent = class {
   constructor(hostRef) {
@@ -14,7 +14,7 @@ const MyComponent = class {
     return format(this.first, this.middle, this.last);
   }
   render() {
-    return h(Host, null, "Hellooooo, ", h("span", { class: "foo-bar" }, "World"), "! I'm ", this.getText());
+    return h(Host, null, "Hellooooo ", h("span", { class: "foo-bar" }, "World"), "! I'm ", this.getText());
   }
 };
 MyComponent.style = myComponentCss;

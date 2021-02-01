@@ -9,7 +9,7 @@ export class MyComponent {
   }
   render() {
     return h(Host, null,
-      "Hellooooo, ",
+      "Hellooooo ",
       h("span", { class: "foo-bar" }, "World"),
       "! I'm ",
       this.getText());
