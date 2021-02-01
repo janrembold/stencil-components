@@ -1,3 +1,7 @@
 :root {
-  --theme-background-color: #c2c2c2;
+  --theme-background-color: #f2f2f2;
+}
+
+.theme-dark {
+  --theme-background-color: #999;
 }
