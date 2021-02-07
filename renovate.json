@@ -1,6 +1,7 @@
 {
   "extends": [
     "config:base",
+    ":automergeBranch",
     ":automergeMinor",
     "packages:jsTest",
     "schedule:nonOfficeHours"
