@@ -1,1 +1,7 @@
-:root{--theme-background-color:#f2f2f2}.theme-dark{--theme-background-color:#999}
+:root {
+  --theme-background-color: #f2f2f2;
+}
+
+.theme-dark {
+  --theme-background-color: #999;
+}

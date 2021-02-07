@@ -1,6 +1,8 @@
 import { attachShadow, h, Host, proxyCustomElement } from '@stencil/core/internal/client';
 export { setAssetPath, setPlatformOptions } from '@stencil/core/internal/client';
 
+const globalScripts = () => {};
+
 const hmgContainerCss = ":host{display:block;padding:20px;background-color:var(--theme-background-color, pink);border:1px solid red}";
 
 const HmgContainer = class extends HTMLElement {
@@ -36,6 +38,7 @@ const MyComponent = class extends HTMLElement {
   static get style() { return myComponentCss; }
 };
 
+globalScripts();
 const HmgContainer$1 = /*@__PURE__*/proxyCustomElement(HmgContainer, [1,"hmg-container"]);
 const MyComponent$1 = /*@__PURE__*/proxyCustomElement(MyComponent, [1,"my-component",{"first":[1],"middle":[1],"last":[1]}]);
 const defineCustomElements = (opts) => {
