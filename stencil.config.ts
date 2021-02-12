@@ -28,7 +28,7 @@ export const config: Config = {
     },
     {
       type: 'www',
-      baseUrl: 'https://janrembold.github.io/stencil-components/www/',
+      baseUrl: '/stencil-components',
       serviceWorker: null, // disable service workers
     },
   ],

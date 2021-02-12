@@ -2,7 +2,7 @@
   "hosting": {
     "headers": [
       {
-        "source": "/stencil-components/www/build/p-*",
+        "source": "/stencil-components/build/p-*",
         "headers": [
           {
             "key": "Cache-Control",
