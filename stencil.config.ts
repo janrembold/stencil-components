@@ -28,6 +28,7 @@ export const config: Config = {
     },
     {
       type: 'www',
+      empty: false,
       serviceWorker: null, // disable service workers
     },
   ],

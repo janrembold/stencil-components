@@ -1,0 +1,1 @@
+import{p as e,b as o}from"./p-22f7763e.js";(()=>{const o=import.meta.url,n={};return""!==o&&(n.resourcesUrl=new URL(".",o).href),e(n)})().then((e=>o([["p-1853e229",[[1,"demo-container"],[1,"demo-headline",{headline:[1]}],[1,"demo-props",{stringArray:[16],simpleObject:[16]}],[1,"demo-state",{count:[32]},[[2,"click","handleClick"]]]]]],e)));
