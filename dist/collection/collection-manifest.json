@@ -1,7 +1,9 @@
 {
   "entries": [
-    "./components/hmg-container/hmg-container.js",
-    "./components/my-component/my-component.js"
+    "./components/demo-props/demo-props.js",
+    "./components/demo-container/demo-container.js",
+    "./components/demo-headline/demo-headline.js",
+    "./components/demo-state/demo-state.js"
   ],
   "compiler": {
     "name": "@stencil/core",

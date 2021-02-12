@@ -1,6 +1,0 @@
-:host {
-  display: block;
-  padding: 20px;
-  background-color: var(--theme-background-color, pink);
-  border: 1px solid red;
-}

@@ -5,70 +5,97 @@
  * It contains typing information for all components that exist in this project.
  */
 import { HTMLStencilElement, JSXBase } from "@stencil/core/internal";
+import { IDemoObject } from "./components/demo-props/demo-props";
 export namespace Components {
-    interface HmgContainer {
+    interface DemoContainer {
     }
-    interface MyComponent {
+    interface DemoHeadline {
         /**
-          * The first name
+          * The headline text
          */
-        "first": string;
+        "headline": string;
+    }
+    interface DemoProps {
         /**
-          * The last name
+          * A simple IDemoObject object
          */
-        "last": string;
+        "simpleObject": IDemoObject;
         /**
-          * The middle name
+          * An array of strings
          */
-        "middle": string;
+        "stringArray": string[];
+    }
+    interface DemoState {
     }
 }
 declare global {
-    interface HTMLHmgContainerElement extends Components.HmgContainer, HTMLStencilElement {
+    interface HTMLDemoContainerElement extends Components.DemoContainer, HTMLStencilElement {
     }
-    var HTMLHmgContainerElement: {
-        prototype: HTMLHmgContainerElement;
-        new (): HTMLHmgContainerElement;
+    var HTMLDemoContainerElement: {
+        prototype: HTMLDemoContainerElement;
+        new (): HTMLDemoContainerElement;
     };
-    interface HTMLMyComponentElement extends Components.MyComponent, HTMLStencilElement {
+    interface HTMLDemoHeadlineElement extends Components.DemoHeadline, HTMLStencilElement {
     }
-    var HTMLMyComponentElement: {
-        prototype: HTMLMyComponentElement;
-        new (): HTMLMyComponentElement;
+    var HTMLDemoHeadlineElement: {
+        prototype: HTMLDemoHeadlineElement;
+        new (): HTMLDemoHeadlineElement;
+    };
+    interface HTMLDemoPropsElement extends Components.DemoProps, HTMLStencilElement {
+    }
+    var HTMLDemoPropsElement: {
+        prototype: HTMLDemoPropsElement;
+        new (): HTMLDemoPropsElement;
+    };
+    interface HTMLDemoStateElement extends Components.DemoState, HTMLStencilElement {
+    }
+    var HTMLDemoStateElement: {
+        prototype: HTMLDemoStateElement;
+        new (): HTMLDemoStateElement;
     };
     interface HTMLElementTagNameMap {
-        "hmg-container": HTMLHmgContainerElement;
-        "my-component": HTMLMyComponentElement;
+        "demo-container": HTMLDemoContainerElement;
+        "demo-headline": HTMLDemoHeadlineElement;
+        "demo-props": HTMLDemoPropsElement;
+        "demo-state": HTMLDemoStateElement;
     }
 }
 declare namespace LocalJSX {
-    interface HmgContainer {
+    interface DemoContainer {
     }
-    interface MyComponent {
+    interface DemoHeadline {
         /**
-          * The first name
+          * The headline text
          */
-        "first"?: string;
+        "headline"?: string;
+    }
+    interface DemoProps {
         /**
-          * The last name
+          * A simple IDemoObject object
          */
-        "last"?: string;
+        "simpleObject": IDemoObject;
         /**
-          * The middle name
+          * An array of strings
          */
-        "middle"?: string;
+        "stringArray"?: string[];
+    }
+    interface DemoState {
     }
     interface IntrinsicElements {
-        "hmg-container": HmgContainer;
-        "my-component": MyComponent;
+        "demo-container": DemoContainer;
+        "demo-headline": DemoHeadline;
+        "demo-props": DemoProps;
+        "demo-state": DemoState;
     }
 }
 export { LocalJSX as JSX };
 declare module "@stencil/core" {
     export namespace JSX {
         interface IntrinsicElements {
-            "hmg-container": LocalJSX.HmgContainer & JSXBase.HTMLAttributes<HTMLHmgContainerElement>;
-            "my-component": LocalJSX.MyComponent & JSXBase.HTMLAttributes<HTMLMyComponentElement>;
+            "demo-container": LocalJSX.DemoContainer & JSXBase.HTMLAttributes<HTMLDemoContainerElement>;
+            "demo-headline": LocalJSX.DemoHeadline & JSXBase.HTMLAttributes<HTMLDemoHeadlineElement>;
+            "demo-props": LocalJSX.DemoProps & JSXBase.HTMLAttributes<HTMLDemoPropsElement>;
+            "demo-state": LocalJSX.DemoState & JSXBase.HTMLAttributes<HTMLDemoStateElement>;
         }
     }
 }

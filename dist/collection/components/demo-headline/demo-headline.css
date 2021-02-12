@@ -1,0 +1,8 @@
+:host {
+  display: block;
+}
+
+h2 {
+  font-family: Stencil, Arial;
+  color: var(--theme-h2-color);
+}

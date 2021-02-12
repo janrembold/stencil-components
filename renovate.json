@@ -3,6 +3,7 @@
     "config:base",
     ":automergeBranch",
     ":automergeMinor",
+    "group:allNonMajor",
     "packages:jsTest",
     "schedule:nonOfficeHours"
   ]

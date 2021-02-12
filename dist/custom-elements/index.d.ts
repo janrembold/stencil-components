@@ -2,16 +2,28 @@
 
 import type { Components, JSX } from "../types/components";
 
-interface HmgContainer extends Components.HmgContainer, HTMLElement {}
-export const HmgContainer: {
-  prototype: HmgContainer;
-  new (): HmgContainer;
+interface DemoContainer extends Components.DemoContainer, HTMLElement {}
+export const DemoContainer: {
+  prototype: DemoContainer;
+  new (): DemoContainer;
 };
 
-interface MyComponent extends Components.MyComponent, HTMLElement {}
-export const MyComponent: {
-  prototype: MyComponent;
-  new (): MyComponent;
+interface DemoHeadline extends Components.DemoHeadline, HTMLElement {}
+export const DemoHeadline: {
+  prototype: DemoHeadline;
+  new (): DemoHeadline;
+};
+
+interface DemoProps extends Components.DemoProps, HTMLElement {}
+export const DemoProps: {
+  prototype: DemoProps;
+  new (): DemoProps;
+};
+
+interface DemoState extends Components.DemoState, HTMLElement {}
+export const DemoState: {
+  prototype: DemoState;
+  new (): DemoState;
 };
 
 /**
