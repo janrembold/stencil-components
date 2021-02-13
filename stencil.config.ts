@@ -28,7 +28,6 @@ export const config: Config = {
     },
     {
       type: 'www',
-      baseUrl: '/stencil-components',
       serviceWorker: null, // disable service workers
     },
   ],
