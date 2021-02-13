@@ -28,6 +28,7 @@ export const config: Config = {
     },
     {
       type: 'www',
+      indexHtml: 'stencil.html',
       serviceWorker: null, // disable service workers
     },
   ],
