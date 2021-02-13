@@ -22,12 +22,10 @@ jobs:
         run: |
           npm install
           npm run build
-          mkdir pages
-          mv www pages
-          mv build pages/build
+          ls -l
 
       - name: Deploy 🚀
         uses: JamesIves/github-pages-deploy-action@4.0.0
         with:
           branch: gh-pages
-          folder: pages
+          folder: www
