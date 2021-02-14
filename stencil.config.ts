@@ -6,7 +6,7 @@ import autoprefixer from 'autoprefixer';
 
 export const config: Config = {
   namespace: 'stencil-components',
-  globalStyle: 'src/global/global.css',
+  globalStyle: 'src/global/index.scss',
   outputTargets: [
     reactOutputTarget({
       componentCorePackage: 'stencil-components',
@@ -28,7 +28,6 @@ export const config: Config = {
     },
     {
       type: 'www',
-      indexHtml: 'stencil.html',
       serviceWorker: null, // disable service workers
     },
   ],
