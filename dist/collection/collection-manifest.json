@@ -3,7 +3,9 @@
     "./components/demo-props/demo-props.js",
     "./components/demo-container/demo-container.js",
     "./components/demo-headline/demo-headline.js",
-    "./components/demo-state/demo-state.js"
+    "./components/demo-shadow-off/demo-shadow-off.js",
+    "./components/demo-state/demo-state.js",
+    "./components/jr-reader/jr-reader.js"
   ],
   "compiler": {
     "name": "@stencil/core",

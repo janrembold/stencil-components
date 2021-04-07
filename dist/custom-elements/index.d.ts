@@ -20,10 +20,22 @@ export const DemoProps: {
   new (): DemoProps;
 };
 
+interface DemoShadowOff extends Components.DemoShadowOff, HTMLElement {}
+export const DemoShadowOff: {
+  prototype: DemoShadowOff;
+  new (): DemoShadowOff;
+};
+
 interface DemoState extends Components.DemoState, HTMLElement {}
 export const DemoState: {
   prototype: DemoState;
   new (): DemoState;
+};
+
+interface JrReader extends Components.JrReader, HTMLElement {}
+export const JrReader: {
+  prototype: JrReader;
+  new (): JrReader;
 };
 
 /**

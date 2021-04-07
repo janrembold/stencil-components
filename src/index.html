@@ -6,15 +6,15 @@
       name="viewport"
       content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=5.0"
     />
+
     <title>Stencil Component Starter</title>
-
-    <link rel="stylesheet" href="/www/build/stencil-components.css" />
-
-    <script type="module" src="/www/build/stencil-components.esm.js"></script>
-    <script nomodule src="/www/build/stencil-components.js"></script>
+    <link rel="stylesheet" href="/build/stencil-components.css" />
+    <script type="module" src="/build/stencil-components.esm.js"></script>
+    <script nomodule src="/build/stencil-components.js"></script>
   </head>
   <body>
-    <demo-headline headline="A demo headline"></demo-headline>
+    <demo-headline headline="Headline should be red"></demo-headline>
+    <demo-shadow-off></demo-shadow-off>
     <demo-container>
       <h1>Headline inside demo-container component</h1>
       <demo-headline headline="Another demo headline"></demo-headline>
@@ -30,7 +30,8 @@
     <hr />
 
     <div class="theme-dark">
-      <demo-headline headline="A demo headline"></demo-headline>
+      <demo-headline headline="Headline should be green"></demo-headline>
+      <demo-shadow-off></demo-shadow-off>
       <demo-container>
         <h1>Headline inside demo-container component</h1>
         <demo-headline headline="Another demo headline"></demo-headline>

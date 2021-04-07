@@ -1,10 +1,21 @@
-import { Config } from '@stencil/core';
-import { reactOutputTarget } from '@stencil/react-output-target';
-import { sass } from '@stencil/sass';
-import { postcss } from '@stencil/postcss';
-import autoprefixer from 'autoprefixer';
+import { Config } from '@stencil/core'
+import { reactOutputTarget } from '@stencil/react-output-target'
+import { sass } from '@stencil/sass'
+import { postcss } from '@stencil/postcss'
+import autoprefixer from 'autoprefixer'
 
 export const config: Config = {
+  buildEs5: true,
+  extras: {
+    cssVarsShim: true,
+    dynamicImportShim: true,
+    shadowDomShim: true,
+    safari10: true,
+    scriptDataOpts: true,
+    appendChildSlotFix: true,
+    cloneNodeFix: true,
+    slotChildNodesFix: true,
+  },
   namespace: 'stencil-components',
   globalStyle: 'src/global/index.scss',
   outputTargets: [
@@ -24,7 +35,7 @@ export const config: Config = {
     },
     {
       type: 'docs-json',
-      file: '.stencil/docs.json'
+      file: '.stencil/docs.json',
     },
     {
       type: 'www',
@@ -34,7 +45,7 @@ export const config: Config = {
   plugins: [
     sass(),
     postcss({
-      plugins: [autoprefixer()]
-    })
-  ]
-};
+      plugins: [autoprefixer()],
+    }),
+  ],
+}

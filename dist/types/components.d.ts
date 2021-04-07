@@ -25,7 +25,11 @@ export namespace Components {
          */
         "stringArray": string[];
     }
+    interface DemoShadowOff {
+    }
     interface DemoState {
+    }
+    interface JrReader {
     }
 }
 declare global {
@@ -47,17 +51,31 @@ declare global {
         prototype: HTMLDemoPropsElement;
         new (): HTMLDemoPropsElement;
     };
+    interface HTMLDemoShadowOffElement extends Components.DemoShadowOff, HTMLStencilElement {
+    }
+    var HTMLDemoShadowOffElement: {
+        prototype: HTMLDemoShadowOffElement;
+        new (): HTMLDemoShadowOffElement;
+    };
     interface HTMLDemoStateElement extends Components.DemoState, HTMLStencilElement {
     }
     var HTMLDemoStateElement: {
         prototype: HTMLDemoStateElement;
         new (): HTMLDemoStateElement;
     };
+    interface HTMLJrReaderElement extends Components.JrReader, HTMLStencilElement {
+    }
+    var HTMLJrReaderElement: {
+        prototype: HTMLJrReaderElement;
+        new (): HTMLJrReaderElement;
+    };
     interface HTMLElementTagNameMap {
         "demo-container": HTMLDemoContainerElement;
         "demo-headline": HTMLDemoHeadlineElement;
         "demo-props": HTMLDemoPropsElement;
+        "demo-shadow-off": HTMLDemoShadowOffElement;
         "demo-state": HTMLDemoStateElement;
+        "jr-reader": HTMLJrReaderElement;
     }
 }
 declare namespace LocalJSX {
@@ -79,13 +97,19 @@ declare namespace LocalJSX {
          */
         "stringArray"?: string[];
     }
+    interface DemoShadowOff {
+    }
     interface DemoState {
+    }
+    interface JrReader {
     }
     interface IntrinsicElements {
         "demo-container": DemoContainer;
         "demo-headline": DemoHeadline;
         "demo-props": DemoProps;
+        "demo-shadow-off": DemoShadowOff;
         "demo-state": DemoState;
+        "jr-reader": JrReader;
     }
 }
 export { LocalJSX as JSX };
@@ -95,7 +119,9 @@ declare module "@stencil/core" {
             "demo-container": LocalJSX.DemoContainer & JSXBase.HTMLAttributes<HTMLDemoContainerElement>;
             "demo-headline": LocalJSX.DemoHeadline & JSXBase.HTMLAttributes<HTMLDemoHeadlineElement>;
             "demo-props": LocalJSX.DemoProps & JSXBase.HTMLAttributes<HTMLDemoPropsElement>;
+            "demo-shadow-off": LocalJSX.DemoShadowOff & JSXBase.HTMLAttributes<HTMLDemoShadowOffElement>;
             "demo-state": LocalJSX.DemoState & JSXBase.HTMLAttributes<HTMLDemoStateElement>;
+            "jr-reader": LocalJSX.JrReader & JSXBase.HTMLAttributes<HTMLJrReaderElement>;
         }
     }
 }

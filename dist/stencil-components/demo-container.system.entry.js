@@ -1,0 +1,1 @@
+System.register(["./index-c18f0a03.system.js"],(function(t){"use strict";var e,n,r;return{setters:[function(t){e=t.r;n=t.h;r=t.e}],execute:function(){var o=":host{display:block;padding:20px;border:2px solid lightcoral}";var i=t("demo_container",function(){function t(t){e(this,t)}t.prototype.render=function(){return n(r,null,n("slot",null))};return t}());i.style=o}}}));

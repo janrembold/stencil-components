@@ -6,8 +6,7 @@ import { Component, Host, h, State, Listen } from '@stencil/core';
   shadow: true,
 })
 export class DemoState {
-  @State()
-  count: number = 0;
+  @State() count: number = 0;
 
   @Listen('click', { capture: true })
   handleClick() {

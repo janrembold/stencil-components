@@ -1,0 +1,43 @@
+:host {
+  display: flex;
+  justify-items: center;
+  align-items: center;
+  border: 1px solid grey;
+  max-width: 900px;
+}
+
+.move {
+  flex-grow: 1;
+  flex-wrap: nowrap;
+  text-align: center;
+  align-items: stretch;
+}
+
+.forward {
+  display: block;
+  flex: 0 0 200px;
+}
+
+.back {
+  flex: 0 0 100px;
+}
+
+.text {
+  position: relative;
+  flex-grow: 2;
+  font-size: 30px;
+  overflow: hidden;
+  height: 60px;
+  border-left: 1px solid grey;
+  border-right: 1px solid grey;
+
+  > p {
+    position: absolute;
+    top: 0;
+    left: 0;
+    padding: 10px;
+    margin: 0;
+    width: 100%;
+    white-space: nowrap;
+  }
+}

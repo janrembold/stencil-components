@@ -1,0 +1,1 @@
+import{r as registerInstance,h,e as Host}from"./index-7341b105.js";var demoContainerCss=":host{display:block;padding:20px;border:2px solid lightcoral}";var DemoContainer=function(){function n(n){registerInstance(this,n)}n.prototype.render=function(){return h(Host,null,h("slot",null))};return n}();DemoContainer.style=demoContainerCss;export{DemoContainer as demo_container};
